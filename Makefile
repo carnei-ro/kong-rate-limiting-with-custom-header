@@ -5,7 +5,7 @@ GID := $(shell id -g)
 SUMMARY := $(shell sed -n '/^summary: /s/^summary: //p' README.md)
 export UID GID NAME VERSION 
 
-build: rockspec validate
+build: validate
 	@find . -type f -iname "*lua~" -exec rm -f {} \;
 	@docker run --rm \
           -v ${PWD}:/plugin \
